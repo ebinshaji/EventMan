@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ebin.eventman.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.LoginController">
+   <top>
+      <AnchorPane prefHeight="148.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="headerimgban" fitHeight="148.0" fitWidth="370.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../images/topimage.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="161.0" layoutY="29.0" text="EvenMan" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="Britannic Bold" size="29.0" />
+               </font>
+            </Label>
+            <Button fx:id="btncancel" blendMode="LIGHTEN" graphicTextGap="2.0" layoutX="344.0" layoutY="2.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #4A235A;" text="X" textFill="#e4e4e4">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="359.0" prefWidth="370.0" style="-fx-background-color: #17202A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="155.0" layoutY="29.0" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="89.0" text="Username:" textFill="#cdcdcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="145.0" text="Password:" textFill="#cdcdcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtusername" layoutX="142.0" layoutY="87.0" prefHeight="25.0" prefWidth="168.0" promptText="User Id" />
+            <PasswordField fx:id="txtpassword" layoutX="142.0" layoutY="143.0" prefHeight="25.0" prefWidth="168.0" promptText="Password" />
+            <Button fx:id="btnlogin" layoutX="148.0" layoutY="227.0" mnemonicParsing="false" onAction="#loginbuttononclick" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4A235A;" text="Login" textFill="#e1e1e1">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="141.0" layoutY="179.0" text="Don't have an account?" textFill="#a8a8a8" />
+            <Hyperlink fx:id="btnsignup" layoutX="270.0" layoutY="176.0" text="SignUp" />
+            <Label fx:id="logstatus" layoutX="187.0" layoutY="285.0" text=" " textFill="RED" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

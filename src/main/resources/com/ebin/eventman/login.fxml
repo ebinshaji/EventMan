@@ -59,7 +59,7 @@
                </font>
             </Button>
             <Label layoutX="141.0" layoutY="179.0" text="Don't have an account?" textFill="#a8a8a8" />
-            <Hyperlink fx:id="btnsignup" layoutX="270.0" layoutY="176.0" text="SignUp" />
+            <Hyperlink fx:id="btnsignup" layoutX="270.0" layoutY="176.0" onAction="#signuphyperlink" text="SignUp" />
             <Label fx:id="logstatus" layoutX="187.0" layoutY="285.0" text=" " textFill="RED" />
          </children>
       </AnchorPane>

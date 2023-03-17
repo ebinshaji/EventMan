@@ -1,13 +1,17 @@
 package com.ebin.eventman;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.stage.StageStyle;
+
 import java.sql.Connection;
 import java.io.File;
 import java.net.URL;
@@ -31,6 +35,9 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField txtpassword;
 
+    @FXML
+    Hyperlink btnsignup;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         File headerimg = new File("images/topimage.png");
@@ -45,6 +52,11 @@ public class LoginController implements Initializable {
         } else {
             logstatus.setText("Enter your User Id and Password");
         }
+    }
+    public void signuphyperlink(ActionEvent event){
+        Stage stage = (Stage) btnsignup.getScene().getWindow();
+        stage.close();
+        createaccountwindow();
     }
 
    public void btncancelonclick(ActionEvent event) {
@@ -72,5 +84,18 @@ public class LoginController implements Initializable {
            e.printStackTrace();
            e.getCause();
        }
+    }
+    public void createaccountwindow(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 477, 596);
+            Stage stage1 = new Stage();
+            stage1.initStyle(StageStyle.UNDECORATED);
+            stage1.setScene(scene);
+            stage1.show();
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }

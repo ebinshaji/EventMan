@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1271.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.HomeController">
+   <left>
+      <AnchorPane prefHeight="668.0" prefWidth="255.0" style="-fx-background-color: #2F363E;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btndashboard" layoutX="19.0" layoutY="140.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="       Dashboard" textFill="#b9b9b9">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+            <Label layoutX="33.0" layoutY="23.0" text="EvenMan" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="43.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnevents" layoutX="19.0" layoutY="219.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="Events" textFill="#b9b9b9">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btncustomer" layoutX="19.0" layoutY="298.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="     Customer" textFill="#b9b9b9">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="btninsights" layoutX="18.0" layoutY="377.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="   Insights" textFill="#b9b9b9">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnsettings" layoutX="19.0" layoutY="456.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="   Settings" textFill="#b9b9b9">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="668.0" prefWidth="1041.0" style="-fx-background-color: #24292D;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

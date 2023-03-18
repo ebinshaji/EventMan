@@ -76,6 +76,7 @@ public class LoginController implements Initializable {
            while(queryResult.next()){
                if (queryResult.getInt(1) == 1){
                    logstatus.setText("success");
+                   createhomewindow();
                }else {
                    logstatus.setText("invalid login");
                }
@@ -93,6 +94,20 @@ public class LoginController implements Initializable {
             stage1.initStyle(StageStyle.UNDECORATED);
             stage1.setScene(scene);
             stage1.show();
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void createhomewindow(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homewindow.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1271, 668);
+            Stage stage3 = new Stage();
+            stage3.initStyle(StageStyle.UNDECORATED);
+            stage3.setScene(scene);
+            stage3.show();
         }catch(Exception e){
             e.printStackTrace();
             e.getCause();

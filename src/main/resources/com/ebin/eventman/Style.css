@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'jane';
+    src: url('jane.ttf');
+}
+.sidebuttons{
+    -fx-background-color: rgba(47,54,62,1);
+    -fx-font-family:jane;
+    -fx-font-size: 18px;
+}
+.sidebuttons:default:hover:pressed,
+.sidebuttons:focused {
+    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%, rgba(42,70,73,1) 95%, rgba(21,180,152,1) 100%);
+    -fx-text-fill: #ffff;
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.1 ), 5, 0, 3, 0 );
+    -fx-font-size: 20px;
+    -fx-font-family:jane;
+}
+.sidebuttons:hover{
+    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%,  rgba(42,70,73,1) 100%);
+    -fx-transaction-delay:0.1s;
+    -fx-font-family:jane;
+    -fx-font-size: 18px;
+}
+
+.sidebuttons:hover:focused{
+    -fx-font-family:jane;
+    -fx-font-size: 20px;
+    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%, rgba(42,70,73,1) 95%, rgba(21,180,152,1) 100%);
+}

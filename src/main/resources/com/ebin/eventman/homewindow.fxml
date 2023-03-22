@@ -3,24 +3,27 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1271.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.HomeController">
+<BorderPane fx:id="borderpanemain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#borderpand_dragged" onMousePressed="#borderpand_pressed" prefHeight="672.0" prefWidth="1271.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.HomeController">
    <left>
       <AnchorPane prefHeight="668.0" prefWidth="255.0" style="-fx-background-color: #2F363E;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btndashboard" layoutX="19.0" layoutY="140.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="       Dashboard" textFill="#b9b9b9">
+            <Button fx:id="btndashboard" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="      ☴ Dashboard" textFill="#b8b8b8">
                <font>
                   <Font size="22.0" />
                </font></Button>
-            <Label layoutX="33.0" layoutY="23.0" text="EvenMan" textFill="WHITE">
+            <Label layoutX="79.0" layoutY="36.0" text="EvenMan" textFill="#eeeeee">
                <font>
-                  <Font name="Berlin Sans FB Bold" size="43.0" />
+                  <Font name="Berlin Sans FB Bold" size="33.0" />
                </font>
             </Label>
-            <Button fx:id="btnevents" layoutX="19.0" layoutY="219.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="Events" textFill="#b9b9b9">
+            <Button fx:id="btnevents" layoutX="-2.0" layoutY="227.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="♔ Events" textFill="#b9b9b9">
                <font>
                   <Font size="22.0" />
                </font>
@@ -28,25 +31,52 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btncustomer" layoutX="19.0" layoutY="298.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="     Customer" textFill="#b9b9b9">
+            <Button fx:id="btncustomer" layoutX="-2.0" layoutY="306.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="    ♥ Customer" textFill="#b9b9b9">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="btninsights" layoutX="18.0" layoutY="377.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="   Insights" textFill="#b9b9b9">
+            <Button fx:id="btninsights" layoutX="-2.0" layoutY="385.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="  ↂ Insights" textFill="#b9b9b9">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="btnsettings" layoutX="19.0" layoutY="456.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="234.0" style="-fx-background-color: #2f363e;" text="   Settings" textFill="#b9b9b9">
+            <Button fx:id="btnsettings" layoutX="-2.0" layoutY="464.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="   ⚒ Settings" textFill="#b9b9b9">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
+            <Label layoutX="46.0" layoutY="101.0" text="Main Menu" textFill="#797979" textOverrun="CLIP">
+               <font>
+                  <Font name="Barlow Condensed Medium" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logobtnimg" fitHeight="56.0" fitWidth="50.0" layoutX="24.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../images/icons8-timeline-96.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="668.0" prefWidth="1041.0" style="-fx-background-color: #24292D;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="649.0" prefWidth="1017.0" style="-fx-background-color: #24292D;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="placelabel" layoutX="43.0" layoutY="40.0" text="☴ Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Modern No. 20" size="26.0" />
+               </font>
+            </Label>
+            <Pane fx:id="panedashboard" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
+            <Pane fx:id="paneevents" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
+            <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
+            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
+            <Pane fx:id="panesettings" layoutX="-1.0" layoutY="103.0" onDragDetected="#btncancelonclick" prefHeight="567.0" prefWidth="1018.0" />
+            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="1.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="X" textFill="#f5f5f5">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
    </center>
 </BorderPane>

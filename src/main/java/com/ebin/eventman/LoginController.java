@@ -1,5 +1,6 @@
 package com.ebin.eventman;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -19,9 +22,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends Application implements Initializable {
     @FXML
     private Button btncancel;
+
+
     @FXML
     private Button btnlogin;
 
@@ -37,6 +42,29 @@ public class LoginController implements Initializable {
 
     @FXML
     Hyperlink btnsignup;
+
+    @FXML
+    private BorderPane borderpaineid;
+
+
+    private double x,y=0;
+
+    @FXML
+    private void borderpand_dragged(MouseEvent event){
+        Stage stage =(Stage) borderpaineid.getScene().getWindow();
+        stage.setY(event.getScreenY() - y);
+        stage.setX(event.getScreenX() - x);
+    }
+    @FXML
+    private void borderpand_pressed(MouseEvent event){
+        y = event.getSceneY();
+        x = event.getScreenX();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -59,6 +87,7 @@ public class LoginController implements Initializable {
         createaccountwindow();
     }
 
+
    public void btncancelonclick(ActionEvent event) {
        Stage stage = (Stage) btncancel.getScene().getWindow();
        stage.close();
@@ -77,6 +106,8 @@ public class LoginController implements Initializable {
                if (queryResult.getInt(1) == 1){
                    logstatus.setText("success");
                    createhomewindow();
+                   Stage stage = (Stage) btnlogin.getScene().getWindow();
+                   stage.close();
                }else {
                    logstatus.setText("invalid login");
                }

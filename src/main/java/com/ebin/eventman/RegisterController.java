@@ -1,5 +1,6 @@
 package com.ebin.eventman;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -22,7 +25,7 @@ import java.util.ResourceBundle;
 import javafx.scene.control.*;
 import javafx.stage.StageStyle;
 
-public class RegisterController implements Initializable {
+public class RegisterController extends Application implements Initializable {
 
 
     @FXML
@@ -48,6 +51,31 @@ public class RegisterController implements Initializable {
     private PasswordField conformpassword;
     @FXML
     Hyperlink btnsigninwindow;
+
+    @FXML
+    private BorderPane borderpaineid;
+
+
+    private double x,y=0;
+
+    @FXML
+    private void borderpand_dragged(MouseEvent event){
+        Stage stage =(Stage) borderpaineid.getScene().getWindow();
+        stage.setY(event.getScreenY() - y);
+        stage.setX(event.getScreenX() - x);
+    }
+    @FXML
+    private void borderpand_pressed(MouseEvent event){
+        y = event.getSceneY();
+        x = event.getScreenX();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
+
+
 
     public void initialize(URL url, ResourceBundle resourceBundle){
         File headerimg1 = new File("images/pho.jpeg");

@@ -119,7 +119,14 @@ public class HomeController extends Application implements Initializable{
         File headerimg3 = new File("images/icons8-timeline-96.png");
         Image topimg3 = new Image(headerimg3.toURI().toString());
         logobtnimg.setImage(topimg3);
-        username.setText(DataShare.currentloguser);
+        username.setText(DataShare.usefirstname +" "+ DataShare.userlastname);
+        btndashboard.setText(DataShare.leftbaritems);
+        btnevents.setText(DataShare.leftbaritems1);
+        btncustomer.setText(DataShare.leftbaritems2);
+        btninsights.setText(DataShare.leftbaritems3);
+        btnsettings.setText(DataShare.leftbaritems4);
+        btninsights1.setText(DataShare.leftbaritems5);
+        btnsettings1.setText(DataShare.leftbaritems6);
     }
 
     public void btncancelonclick(ActionEvent event) {
@@ -129,84 +136,22 @@ public class HomeController extends Application implements Initializable{
 
     public void leftbtnclicks(ActionEvent event) {
         if (event.getSource() == btndashboard){
-            placelabel.setText("☴ Dashboard");
+            placelabel.setText(DataShare.leftbaritems);
         }else if (event.getSource() == btnevents){
-            placelabel.setText("♘ Events");
+            placelabel.setText(DataShare.leftbaritems1);
         }else if (event.getSource() == btncustomer){
-            placelabel.setText("☎ Customer");
+            placelabel.setText(DataShare.leftbaritems2);
         }else if (event.getSource() == btninsights){
-            placelabel.setText("⛳ Insights");
+            placelabel.setText(DataShare.leftbaritems3);
         }else if (event.getSource() == btnsettings){
-            placelabel.setText("⚒ Settings");
+            placelabel.setText(DataShare.leftbaritems4);
         }else if (event.getSource() == btninsights1){
-            placelabel.setText("⛳ Insights");
+            placelabel.setText(DataShare.leftbaritems5);
         }else if (event.getSource() == btnsettings1){
-            placelabel.setText("⚒ Settings");
+            placelabel.setText(DataShare.leftbaritems6);
         }
     }
 
-
-
-    public void getleftbaritems(){
-        DatabaseConnection connection = new DatabaseConnection();
-        Connection connectiondb  = connection.getConnection();
-
-        try {
-
-        }catch(Exception e){
-        e.printStackTrace();
-        e.getCause();
-        }
-    }
 }
 
-/*import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
-public class CheckNull {
-    public static void main(String[] args) {
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String str1 = "";
-        String str2 = "";
-        String str3 = "";
-        String str4 = "";
-        String str5 = "";
-        String str6 = "";
-        String str7 = "";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MyDatabase", "username", "password");
-            stmt = con.createStatement();
-            rs = stmt.executeQuery("select * from table_name");
-            while (rs.next()) {
-                if (rs.getString(1) != null) {
-                    str1 = rs.getString(1);
-                }
-                if (rs.getString(2) != null) {
-                    str2 = rs.getString(2);
-                }
-                if (rs.getString(3) != null) {
-                    str3 = rs.getString(3);
-                }
-                if (rs.getString(4) != null) {
-                    str4 = rs.getString(4);
-                }
-                if (rs.getString(5) != null) {
-                    str5 = rs.getString(5);
-                }
-                if (rs.getString(6) != null) {
-                    str6 = rs.getString(6);
-                }
-                if (rs.getString(7) != null) {
-                    str7 = rs.getString(7);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}*/

@@ -117,6 +117,7 @@ public class RegisterController extends Application implements Initializable {
 
 
     }
+
     public void registeruser(){
         DatabaseConnection connectiondata = new DatabaseConnection();
         Connection connectdatabase = connectiondata.getConnection();
@@ -125,9 +126,16 @@ public class RegisterController extends Application implements Initializable {
         String reglastnamed = reglastname.getText();
         String regusernamed = regusername.getText();
         String regpasswordd = regpassword.getText();
+        String dashboard = "☴ Dashboard";
+        String events ="♘ Events";
+        String customer ="☎ Customer";
+        String insights ="⛳ Insights";
+        String employees ="♕ Employees";
+        String departnment ="✰ Departnment";
+        String others ="✌ Others";
 
-        String insertfields = "INSERT INTO `ebinshaji`.`accounts` (`firstname`, `lastname`, `username`, `password`) VALUES ('";
-        String InsertValues =regfirstnamed + "','" + reglastnamed + "','" + regusernamed + "','" + regpasswordd + "')";
+        String insertfields = "INSERT INTO `ebinshaji`.`accounts` (`firstname`, `lastname`, `username`, `password` , `leftbaritems` , `leftbaritems1` , `leftbaritems2` , `leftbaritems3` , `leftbaritems4` , `leftbaritems5` , `leftbaritems6`) VALUES ('";
+        String InsertValues =regfirstnamed + "','" + reglastnamed + "','" + regusernamed + "','" + regpasswordd + "','"+ dashboard + "','" + events + "','" + customer + "','" + insights + "','" + employees + "','" + departnment + "','" + others +  "')";
         String Inserttoregister = insertfields + InsertValues;
 
         try{

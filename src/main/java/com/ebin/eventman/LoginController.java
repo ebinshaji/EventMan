@@ -109,6 +109,7 @@ public class LoginController extends Application implements Initializable {
                    logstatus.setText("success");
                    String currentusertext = txtusername.getText();
                    DataShare.currentloguser = currentusertext;
+                   getitemsfromdb();
                    createhomewindow();
                    Stage stage = (Stage) btnlogin.getScene().getWindow();
                    stage.close();
@@ -121,6 +122,49 @@ public class LoginController extends Application implements Initializable {
            e.getCause();
        }
     }
+
+
+
+
+    public void getitemsfromdb(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            Statement statement = connectiondb.createStatement();
+            ResultSet leftitemSet = statement.executeQuery("SELECT firstname, lastname, leftbaritems, leftbaritems1, leftbaritems2, leftbaritems3, leftbaritems4, leftbaritems5, leftbaritems6 FROM accounts");
+
+            while (leftitemSet.next()) {
+                String col1 = leftitemSet.getString("leftbaritems");
+                DataShare.leftbaritems = col1;
+                String col2 = leftitemSet.getString("leftbaritems1");
+                DataShare.leftbaritems1 = col2;
+                String col3 = leftitemSet.getString("leftbaritems2");
+                DataShare.leftbaritems2 = col3;
+                String col4 = leftitemSet.getString("leftbaritems3");
+                DataShare.leftbaritems3 = col4;
+                String col5 = leftitemSet.getString("leftbaritems4");
+                DataShare.leftbaritems4 = col5;
+                String col6 = leftitemSet.getString("leftbaritems5");
+                DataShare.leftbaritems5 = col6;
+                String col7 = leftitemSet.getString("leftbaritems6");
+                DataShare.leftbaritems6 = col7;
+
+                String col8 = leftitemSet.getString("firstname");
+                DataShare.usefirstname = col8;
+                String col9 = leftitemSet.getString("lastname");
+                DataShare.userlastname = col9;
+
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+
+
     public void createaccountwindow(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));

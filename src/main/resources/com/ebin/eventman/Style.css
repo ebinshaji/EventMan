@@ -59,3 +59,6 @@
 .btncolse:hover:focused{
     -fx-background-color:rgba(248, 0, 0, 0.733);
 }
+.topselectlabel{
+    -fx-font-family:jane;
+}

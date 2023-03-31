@@ -46,7 +46,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label layoutX="46.0" layoutY="101.0" text="Main Menu" textFill="#797979" textOverrun="CLIP">
+            <Label layoutX="46.0" layoutY="101.0" styleClass="topselectlabel" stylesheets="@Style.css" text="Main Menu" textFill="#797979" textOverrun="CLIP">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -73,7 +73,7 @@
    <center>
       <AnchorPane prefHeight="649.0" prefWidth="1017.0" style="-fx-background-color: #24292D;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="placelabel" layoutX="43.0" layoutY="40.0" text="☴ Dashboard" textFill="WHITE">
+            <Label fx:id="placelabel" layoutX="28.0" layoutY="19.0" styleClass="topselectlabel" stylesheets="@Style.css" text="☴ Dashboard" textFill="WHITE">
                <font>
                   <Font name="Modern No. 20" size="26.0" />
                </font>
@@ -82,15 +82,15 @@
             <Pane fx:id="paneevents" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
-            <Pane fx:id="panesettings" layoutX="-1.0" layoutY="103.0" onDragDetected="#btncancelonclick" prefHeight="567.0" prefWidth="1018.0" />
-            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="-5.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="⨷" textFill="#f5f5f5">
+            <Pane fx:id="panesettings" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" />
+            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="-5.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="✕" textFill="#f5f5f5">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="33.0" />
                </font>
             </Button>
-            <Label fx:id="username" layoutX="822.0" layoutY="12.0" text="user name" textFill="#e4e4e4">
+            <Label fx:id="username" layoutX="863.0" layoutY="23.0" styleClass="topselectlabel" stylesheets="@Style.css" text="user name" textFill="#e4e4e4">
                <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font>
             </Label>
          </children></AnchorPane>

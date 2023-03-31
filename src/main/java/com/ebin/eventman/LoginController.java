@@ -49,6 +49,7 @@ public class LoginController extends Application implements Initializable {
 
     private double x,y=0;
 
+
     @FXML
     private void borderpand_dragged(MouseEvent event){
         Stage stage =(Stage) borderpaineid.getScene().getWindow();
@@ -93,6 +94,7 @@ public class LoginController extends Application implements Initializable {
        stage.close();
    }
 
+
    public void validatelogin(){
         DatabaseConnection connection = new DatabaseConnection();
        Connection connectiondb  = connection.getConnection();
@@ -105,6 +107,8 @@ public class LoginController extends Application implements Initializable {
            while(queryResult.next()){
                if (queryResult.getInt(1) == 1){
                    logstatus.setText("success");
+                   String currentusertext = txtusername.getText();
+                   DataShare.currentloguser = currentusertext;
                    createhomewindow();
                    Stage stage = (Stage) btnlogin.getScene().getWindow();
                    stage.close();

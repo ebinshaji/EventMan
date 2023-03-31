@@ -14,41 +14,41 @@
    <left>
       <AnchorPane prefHeight="668.0" prefWidth="255.0" style="-fx-background-color: #2F363E;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btndashboard" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="      ☴ Dashboard" textFill="#b8b8b8">
+            <Button fx:id="btndashboard" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="        ☴ Dashboard" textFill="#b8b8b8">
                <font>
-                  <Font size="22.0" />
+                  <Font size="18.0" />
                </font></Button>
             <Label layoutX="79.0" layoutY="36.0" text="EvenMan" textFill="#eeeeee">
                <font>
                   <Font name="Berlin Sans FB Bold" size="33.0" />
                </font>
             </Label>
-            <Button fx:id="btnevents" layoutX="-2.0" layoutY="227.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="♔ Events" textFill="#b9b9b9">
+            <Button fx:id="btnevents" layoutX="-2.0" layoutY="209.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="♘ Events" textFill="#b9b9b9">
                <font>
-                  <Font size="22.0" />
+                  <Font size="18.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btncustomer" layoutX="-2.0" layoutY="306.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="    ♥ Customer" textFill="#b9b9b9">
+            <Button fx:id="btncustomer" layoutX="-2.0" layoutY="272.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="     ☎ Customer" textFill="#b9b9b9">
                <font>
-                  <Font size="22.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btninsights" layoutX="-2.0" layoutY="385.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="  ↂ Insights" textFill="#b9b9b9">
+            <Button fx:id="btninsights" layoutX="-4.0" layoutY="335.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text=" ⛳ Insights" textFill="#b9b9b9">
                <font>
-                  <Font size="22.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnsettings" layoutX="-2.0" layoutY="464.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="73.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="   ⚒ Settings" textFill="#b9b9b9">
+            <Button fx:id="btnsettings" layoutX="-4.0" layoutY="398.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="   ⚒ Settings" textFill="#b9b9b9">
                <font>
-                  <Font size="22.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
             <Label layoutX="46.0" layoutY="101.0" text="Main Menu" textFill="#797979" textOverrun="CLIP">
                <font>
-                  <Font name="Barlow Condensed Medium" size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <ImageView fx:id="logobtnimg" fitHeight="56.0" fitWidth="50.0" layoutX="24.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
@@ -56,6 +56,17 @@
                   <Image url="@../../../../../../images/icons8-timeline-96.png" />
                </image>
             </ImageView>
+            <Button layoutX="55.0" layoutY="633.0" mnemonicParsing="false" style="-fx-background-color: #2F363E;" text="Github.com/ebinshaji" textFill="#d3d3d3" />
+            <Button fx:id="btninsights1" layoutX="-2.0" layoutY="462.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text=" ⛳ Insights1" textFill="#b9b9b9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnsettings1" layoutX="-2.0" layoutY="525.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="   ⚒ Settings2" textFill="#b9b9b9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
@@ -67,16 +78,21 @@
                   <Font name="Modern No. 20" size="26.0" />
                </font>
             </Label>
-            <Pane fx:id="panedashboard" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
-            <Pane fx:id="paneevents" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
-            <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
-            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="134.0" prefHeight="536.0" prefWidth="1018.0" />
+            <Pane fx:id="panedashboard" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
+            <Pane fx:id="paneevents" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
+            <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
+            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="panesettings" layoutX="-1.0" layoutY="103.0" onDragDetected="#btncancelonclick" prefHeight="567.0" prefWidth="1018.0" />
-            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="1.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="X" textFill="#f5f5f5">
+            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="-5.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="⨷" textFill="#f5f5f5">
                <font>
-                  <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+                  <Font name="Berlin Sans FB Demi Bold" size="33.0" />
                </font>
             </Button>
+            <Label fx:id="username" layoutX="822.0" layoutY="12.0" text="user name" textFill="#e4e4e4">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </center>
 </BorderPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpaineid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#borderpand_dragged" onMousePressed="#borderpand_pressed" prefHeight="490.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.LoginController">
+<BorderPane fx:id="borderpaineid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#borderpand_dragged" onMousePressed="#borderpand_pressed" prefHeight="490.0" prefWidth="370.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ebin.eventman.LoginController">
    <top>
       <AnchorPane prefHeight="148.0" prefWidth="370.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +25,7 @@
                   <Font name="Britannic Bold" size="29.0" />
                </font>
             </Label>
-            <Button fx:id="btncancel" blendMode="LIGHTEN" graphicTextGap="2.0" layoutX="344.0" layoutY="2.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #4A235A;" text="X" textFill="#e4e4e4">
+            <Button fx:id="btncancel" blendMode="LIGHTEN" cancelButton="true" graphicTextGap="2.0" layoutX="344.0" layoutY="2.0" mnemonicParsing="false" onAction="#btncancelonclick" styleClass="btncolse" stylesheets="@Style.css" text="X" textFill="#e4e4e4">
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
@@ -41,25 +41,28 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="89.0" text="Username:" textFill="#cdcdcd">
+            <Label layoutX="50.0" layoutY="94.0" text="Username:" textFill="#cdcdcd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="145.0" text="Password:" textFill="#cdcdcd">
+            <Label layoutX="50.0" layoutY="150.0" text="Password:" textFill="#cdcdcd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtusername" layoutX="142.0" layoutY="87.0" prefHeight="25.0" prefWidth="168.0" promptText="User Id" />
-            <PasswordField fx:id="txtpassword" layoutX="142.0" layoutY="143.0" prefHeight="25.0" prefWidth="168.0" promptText="Password" />
-            <Button fx:id="btnlogin" layoutX="148.0" layoutY="227.0" mnemonicParsing="false" onAction="#loginbuttononclick" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4A235A;" text="Login" textFill="#e1e1e1">
+            <TextField fx:id="txtusername" layoutX="142.0" layoutY="87.0" prefHeight="25.0" prefWidth="168.0" promptText="User Id" styleClass="logindetails" stylesheets="@Style.css">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="txtpassword" layoutX="142.0" layoutY="143.0" prefHeight="25.0" prefWidth="168.0" promptText="Password" styleClass="logindetails" stylesheets="@Style.css" />
+            <Button fx:id="btnlogin" defaultButton="true" layoutX="108.0" layoutY="252.0" mnemonicParsing="false" onAction="#loginbuttononclick" prefHeight="33.0" prefWidth="155.0" styleClass="btnlogin" stylesheets="@Style.css" text="Login" textFill="#e1e1e1">
                <font>
                   <Font name="Arial Rounded MT Bold" size="17.0" />
                </font>
             </Button>
-            <Label layoutX="141.0" layoutY="179.0" text="Don't have an account?" textFill="#a8a8a8" />
-            <Hyperlink fx:id="btnsignup" layoutX="270.0" layoutY="176.0" onAction="#signuphyperlink" text="SignUp" />
+            <Label layoutX="146.0" layoutY="195.0" text="Don't have an account?" textFill="#a8a8a8" />
+            <Hyperlink fx:id="btnsignup" layoutX="275.0" layoutY="192.0" onAction="#signuphyperlink" text="SignUp" />
             <Label fx:id="logstatus" layoutX="187.0" layoutY="285.0" text=" " textFill="RED" />
          </children>
       </AnchorPane>

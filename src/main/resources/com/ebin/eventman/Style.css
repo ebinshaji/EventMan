@@ -9,11 +9,13 @@
 }
 .sidebuttons:default:hover:pressed,
 .sidebuttons:focused {
-    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%, rgba(42,70,73,1) 91%, rgba(47, 255, 217,1) 100%);
+    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%, rgba(42,70,73,1) 91%, rgb(17, 255, 0) 100%);
     -fx-text-fill: #ffff;
     -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.1 ), 5, 0, 3, 0 );
     -fx-font-size: 20px;
     -fx-font-family:jane;
+    -fx-border-radius: 0px 1px;
+    -fx-border-color: linear-gradient(to right, rgba(47,54,62,1) 10%, rgba(17, 255, 0, 0.47) 100%);
 }
 .sidebuttons:hover{
     -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%,  rgba(42,70,73,1) 100%);
@@ -36,6 +38,17 @@
     -fx-font-size: 15px;
 }
 .logindetails:default:hover:pressed, .logindetails:focused {
+    -fx-border-color:rgb(15, 187, 38);
+}
+.logindetails1{
+    -fx-background-color:#2F363E;
+    -fx-border-color:rgb(200, 60, 255);
+    -fx-border-width:0px 0px 1.5px 0px;
+    -fx-text-fill:rgb(175, 175, 175);
+    -fx-border-radius: 30px;
+    -fx-font-size: 15px;
+}
+.logindetails1:default:hover:pressed, .logindetails1:focused {
     -fx-border-color:rgb(15, 187, 38);
 }
 .btnlogin{
@@ -61,4 +74,37 @@
 }
 .topselectlabel{
     -fx-font-family:jane;
+}
+.admhomeclose{
+    -fx-background-radius: 15px;
+    -fx-border-color:rgb(0, 131, 17);
+    -fx-border-radius: 10px;
+    -fx-font-size: 25px;
+    -fx-padding:13px 20px 8px 15px;
+    -fx-border-width: 0px 0px 2px 2px;
+    -fx-background-color: #24292D;
+}
+.admhomeclose:default:hover:pressed,
+.admhomeclose:focused {
+    -fx-border-color:rgb(0, 131, 17);
+    -fx-background-color: rgba(248, 0, 0, 0.17);
+}
+.admhomeclose:hover:focused {
+    -fx-border-color: rgb(248, 0, 0);
+    -fx-background-color: rgba(248, 0, 0, 0.17);
+}
+.admhomeclose:hover {
+    -fx-border-color: rgb(248, 0, 0);
+    -fx-background-color: rgba(248, 0, 0, 0.17);
+}
+.lefteditsave{
+    -fx-border-width: 1px;
+    -fx-border-color: #8d8d8d;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-padding: -1px 4px;
+    -fx-background-color:#2F363E;
+}
+.lefteditsave:hover {
+    -fx-background-color: #474e56;
 }

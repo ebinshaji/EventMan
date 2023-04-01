@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,10 +15,13 @@
    <left>
       <AnchorPane prefHeight="668.0" prefWidth="255.0" style="-fx-background-color: #2F363E;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btndashboard" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="        ☴ Dashboard" textFill="#b8b8b8">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
+            <TextField fx:id="leftbaredit1" layoutX="35.0" layoutY="165.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit2" layoutX="35.0" layoutY="228.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit3" layoutX="35.0" layoutY="289.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit4" layoutX="35.0" layoutY="352.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit5" layoutX="35.0" layoutY="415.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit6" layoutX="35.0" layoutY="479.0" styleClass="logindetails1" stylesheets="@Style.css" />
+            <TextField fx:id="leftbaredit7" layoutX="35.0" layoutY="544.0" styleClass="logindetails1" stylesheets="@Style.css" />
             <Label layoutX="79.0" layoutY="36.0" text="EvenMan" textFill="#eeeeee">
                <font>
                   <Font name="Berlin Sans FB Bold" size="33.0" />
@@ -67,6 +71,20 @@
                   <Font size="18.0" />
                </font>
             </Button>
+            <Button fx:id="btndashboard" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" onAction="#leftbtnclicks" prefHeight="60.0" prefWidth="258.0" styleClass="sidebuttons" stylesheets="@Style.css" text="        ☴ Dashboard" textFill="#b8b8b8">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="leftbarsave" layoutX="173.0" layoutY="97.0" mnemonicParsing="false" onAction="#leftbarsave" styleClass="lefteditsave" stylesheets="@Style.css" text="☑" textFill="#d7d7d7">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="leftbaredit" layoutX="173.0" layoutY="96.0" mnemonicParsing="false" onAction="#leftbaredit" styleClass="lefteditsave" stylesheets="@Style.css" text="✑" textFill="#d3d3d3">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
@@ -83,7 +101,7 @@
             <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="panesettings" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" />
-            <Button fx:id="closebtnimg" layoutX="970.0" layoutY="-5.0" mnemonicParsing="false" onAction="#btncancelonclick" style="-fx-background-color: #24292D;" text="✕" textFill="#f5f5f5">
+            <Button fx:id="closebtnimg" layoutX="978.0" layoutY="-9.0" mnemonicParsing="false" onAction="#btncancelonclick" styleClass="admhomeclose" stylesheets="@Style.css" text="✕" textFill="#f5f5f5">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="33.0" />
                </font>

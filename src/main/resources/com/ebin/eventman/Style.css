@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'jane';
+    font-family: 'maxaio';
     src: url('jane.ttf');
+}
+@font-face {
+    font-family: 'jane';
+    src: url('mx.ttf');
 }
 .sidebuttons{
     -fx-background-color: rgba(47,54,62,1);
@@ -9,13 +13,13 @@
 }
 .sidebuttons:default:hover:pressed,
 .sidebuttons:focused {
-    -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%, rgba(42,70,73,1) 91%, rgb(17, 255, 0) 100%);
+    -fx-background-color: linear-gradient(to right, rgb(47, 54, 62) 0%, rgba(42,70,73,1) 91%, rgb(17, 255, 0) 100%);
     -fx-text-fill: #ffff;
     -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.1 ), 5, 0, 3, 0 );
     -fx-font-size: 20px;
     -fx-font-family:jane;
-    -fx-border-radius: 0px 1px;
-    -fx-border-color: linear-gradient(to right, rgba(47,54,62,1) 10%, rgba(17, 255, 0, 0.47) 100%);
+    -fx-border-radius: 0em 0.3em;
+    -fx-border-color: linear-gradient(to right, rgba(47, 54, 62, 0) 10%, rgba(17, 255, 0, 0.36) 100%);
 }
 .sidebuttons:hover{
     -fx-background-color: linear-gradient(to right, rgba(47,54,62,1) 0%,  rgba(42,70,73,1) 100%);
@@ -99,7 +103,7 @@
 }
 .lefteditsave{
     -fx-border-width: 1px;
-    -fx-border-color: #8d8d8d;
+    -fx-border-color: rgba(141, 141, 141, 0.35);
     -fx-background-radius: 15px;
     -fx-border-radius: 15px;
     -fx-padding: -1px 4px;
@@ -107,4 +111,37 @@
 }
 .lefteditsave:hover {
     -fx-background-color: #474e56;
+}
+.workerlist{
+    -fx-background-color: rgb(36,41,45);
+}
+.workerlistcol{
+    -fx-font-size: 15px;
+    -fx-background-color: rgb(36,41,45);
+    -fx-font-family:jane;
+    -fx-text-fill: rgba(255, 255, 255, 0.81);
+    -fx-background-color: rgb(47,54,62);
+}
+.workerlist .workerlistcol .label{
+    -fx-text-fill: rgba(255, 255, 255, 0.68);
+    -fx-border-color: rgba(122, 122, 122, 0.54);
+    -fx-border-radius: 1px;
+    -fx-border-width: 0px 1px 1px 0px;
+    -fx-border-style: dotted;
+}
+.workerlist .table-row-cell {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 1);
+    -fx-background-color: rgb(36,41,45);
+    -fx-font-family:jane;
+}
+.workerlist .table-cell {
+    -fx-alignment: CENTER;
+    -fx-border-width: 0px 1px 0px 0px;
+    -fx-border-color: rgba(255, 255, 255, 0.27);
+    -fx-border-style: dotted;
+}
+.workerlist .table-row-cell:hover:pressed,
+.workerlist .table-row-cell:focused{
+    -fx-border-color:  linear-gradient(to right, rgba(17, 255, 0, 0.59) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(17, 255, 0, 0.59) 100%);
+    -fx-border-width: 1px 0px 1px 0px;
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox fx:id="hbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="600.0" styleClass="itemscss" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="workerphoto" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="40.0" />
+         </HBox.margin>
+      </ImageView>
+      <Label fx:id="workername" text="Name">
+         <HBox.margin>
+            <Insets left="70.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="workerage" text="Age">
+         <HBox.margin>
+            <Insets left="70.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="workerdep" text="Department">
+         <HBox.margin>
+            <Insets left="70.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="workersalary" text="Salary">
+         <HBox.margin>
+            <Insets left="70.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>

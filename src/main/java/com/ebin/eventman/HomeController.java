@@ -1,20 +1,27 @@
 package com.ebin.eventman;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.io.File;
 import java.net.URL;
@@ -118,6 +125,23 @@ public class HomeController extends Application implements Initializable{
     public String leftbar7;
 
 
+/*0803*/
+
+
+
+    @FXML
+    private Button workersave;
+    @FXML
+    private Button workeredit;
+    @FXML
+    private Button workeradd;
+    @FXML
+    private Button workerdelete;
+
+
+    @FXML
+    private VBox vboworkerlist;
+
 
 
 
@@ -159,7 +183,10 @@ public class HomeController extends Application implements Initializable{
         leftbaredit6.setText(DataShare.leftbaritems5);
         btnsettings1.setText(DataShare.leftbaritems6);
         leftbaredit7.setText(DataShare.leftbaritems6);
+        workertableview();
     }
+
+
 
     public void btncancelonclick(ActionEvent event) {
         Stage stage = (Stage) closebtnimg.getScene().getWindow();
@@ -224,6 +251,42 @@ public class HomeController extends Application implements Initializable{
         btnsettings1.setText(DataShare.leftbaritems6);
         leftbaredit7.setText(DataShare.leftbaritems6);
     }
+
+    public void workertableview(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            Statement statement = connectiondb.createStatement();
+            ResultSet workerslist = statement.executeQuery("SELECT * FROM workers");
+
+            while (workerslist.next()) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("listitems.fxml"));
+                Node listItemNode = fxmlLoader.load();
+
+                Label name = (Label) listItemNode.lookup("#workername");
+                Label label2 = (Label) listItemNode.lookup("#workerdep");
+                Label label3 = (Label) listItemNode.lookup("#workerage");
+                Label label4 = (Label) listItemNode.lookup("#workersalary");
+
+                name.setText( workerslist.getString("name1"));
+                label2.setText(workerslist.getString("department"));
+                label3.setText(String.valueOf(workerslist.getInt("age")));
+                label4.setText(String.valueOf(workerslist.getInt("salary")));
+
+                // Add the listItemNode to the VBox
+                vboworkerlist.getChildren().add(listItemNode);
+
+
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
 
     public void leftbardbupdate(){
         DatabaseConnection connection = new DatabaseConnection();

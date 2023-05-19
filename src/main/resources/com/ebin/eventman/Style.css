@@ -112,36 +112,43 @@
 .lefteditsave:hover {
     -fx-background-color: #474e56;
 }
-.workerlist{
-    -fx-background-color: rgb(36,41,45);
-}
-.workerlistcol{
-    -fx-font-size: 15px;
-    -fx-background-color: rgb(36,41,45);
-    -fx-font-family:jane;
-    -fx-text-fill: rgba(255, 255, 255, 0.81);
-    -fx-background-color: rgb(47,54,62);
-}
-.workerlist .workerlistcol .label{
-    -fx-text-fill: rgba(255, 255, 255, 0.68);
-    -fx-border-color: rgba(122, 122, 122, 0.54);
-    -fx-border-radius: 1px;
-    -fx-border-width: 0px 1px 1px 0px;
-    -fx-border-style: dotted;
-}
-.workerlist .table-row-cell {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 1);
-    -fx-background-color: rgb(36,41,45);
-    -fx-font-family:jane;
-}
-.workerlist .table-cell {
-    -fx-alignment: CENTER;
-    -fx-border-width: 0px 1px 0px 0px;
-    -fx-border-color: rgba(255, 255, 255, 0.27);
-    -fx-border-style: dotted;
-}
-.workerlist .table-row-cell:hover:pressed,
-.workerlist .table-row-cell:focused{
+
+
+.itemscss{
+    -fx-effect: dropshadow( gaussian , rgb(0, 0, 0), 20,0.3,1,2 );
+    -fx-background-color:  #24292D;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
     -fx-border-color:  linear-gradient(to right, rgba(17, 255, 0, 0.59) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(17, 255, 0, 0.59) 100%);
-    -fx-border-width: 1px 0px 1px 0px;
+    -fx-border-width: 1px;
+}
+.scroll-bar{
+    -fx-background-color: #474e56;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #24292D;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #24292D;
+}
+
+.woitems{
+    -fx-background-color: linear-gradient(to right bottom,#FCCF31 10%, #F55555 70%);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    
+}
+
+.progress-bar{
+    background-color: rgba(71, 78, 86, 0);
+    -fx-control-inner-background: rgb(255, 255, 255);
+}
+.wotasktxt{
+    -fx-font-family:jane;
+}
+.cllistpane{
+    -fx-background-color: linear-gradient(to right bottom,#438366 10%, #197c50 70%);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }

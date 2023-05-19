@@ -14,15 +14,31 @@ public class DataShare {
     public static String userlastname;
 
     //workers
-    public static String woname1;
-    public static String woname2;
-    public static String woaddress;
+    public static String selectedworker;
+    public static String woname;
+    public static String woaddress1;
     public static String wodep;
-    public static String wousername;
+
+    public static String wopas;
+
     public static Integer wophone;
     public static Integer woage;
+    public static Integer wosalary;
 
-    public static Integer workercount;
+    public static Integer workercount = 0;
+
+
+
+
+
+    public static String cuname;
+    public static String cuaddress;
+    public static String cuemail;
+
+    public static String cufrmdate;
+
+    public static Integer cuphone;
+    public static Integer cuactdact;
 
 
 }

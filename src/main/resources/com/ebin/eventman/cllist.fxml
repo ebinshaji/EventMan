@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="cllist" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="153.0" prefWidth="568.0" styleClass="cllistpane" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutY="3.0" prefHeight="153.0" prefWidth="562.0">
+         <children>
+            <VBox prefHeight="153.0" prefWidth="274.0">
+               <children>
+                  <Label fx:id="cuname" text="Name" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cuemail" text="email" textFill="WHITE">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cumemdate" text="Member since" textFill="WHITE">
+                     <padding>
+                        <Insets left="10.0" top="30.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="153.0" prefWidth="285.0">
+               <children>
+                  <HBox prefHeight="28.0" prefWidth="220.0">
+                     <children>
+                        <Label text="Addr: " textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cuaddress" text="Address" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="220.0">
+                     <children>
+                        <Label text="Ph: " textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cuphone" text="Phone" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="cuactdact" alignment="BOTTOM_LEFT" text="ACTIVE/DEACTIVE" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="230.0">
+                     <children>
+                        <Button fx:id="cuedit" mnemonicParsing="false" text="EDIT">
+                           <HBox.margin>
+                              <Insets bottom="5.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="cudelete" mnemonicParsing="false" text="DEL">
+                           <HBox.margin>
+                              <Insets bottom="5.0" right="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

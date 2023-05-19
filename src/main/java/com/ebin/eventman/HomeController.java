@@ -66,6 +66,8 @@ public class HomeController extends Application implements Initializable{
 
     @FXML
     private Pane paneinsights;
+    @FXML
+    private Pane paneaddemployee;
 
     @FXML
     private Pane panesettings;
@@ -75,6 +77,17 @@ public class HomeController extends Application implements Initializable{
 
     @FXML
     private Pane placeback;
+    @FXML
+    private Pane employees;
+    @FXML
+    private Pane usereditadd;
+
+    @FXML
+    private Pane cuedit;
+    @FXML
+    private Pane cuadd;
+    @FXML
+    private Pane customers;
 
     @FXML
     private ImageView logobtnimg;
@@ -87,6 +100,14 @@ public class HomeController extends Application implements Initializable{
 
     @FXML
     public Label username;
+    @FXML
+    public Label wouseridlabel;
+    @FXML
+    public Label woaddress;
+    @FXML
+    public Label addresswo;
+    @FXML
+    public Label woaddindi;
 
     @FXML
     private TextField leftbaredit1;
@@ -114,6 +135,78 @@ public class HomeController extends Application implements Initializable{
     @FXML
     private Button leftbarsave;
 
+    @FXML
+    private TextField woaddressedit;
+
+    @FXML
+    private TextField woaddressedit1;
+
+    @FXML
+    private TextField woageedit;
+    @FXML
+    private TextField woageedit1;
+
+    @FXML
+    private TextField wodepedit;
+    @FXML
+    private TextField wodepedit1;
+
+    @FXML
+    private TextField wonameedit;
+    @FXML
+    private TextField wonameedit1;
+
+    @FXML
+    private TextField wopasswordedit;
+    @FXML
+    private TextField wopasswordedit1;
+
+    @FXML
+    private TextField wophonedit;
+    @FXML
+    private TextField wophonedit1;
+
+    @FXML
+    private TextField wosalaryedit;
+    @FXML
+    private TextField wosalaryedit1;
+
+    @FXML
+    private TextField wousernameedit;
+    @FXML
+    private TextField wousernameedit1;
+
+    @FXML
+    private TextField cunameedit;
+    @FXML
+    private TextField cuadderessedit;
+
+    @FXML
+    private TextField cuactdactedit;
+    @FXML
+    private TextField cuemailedit;
+
+    @FXML
+    private TextField cuphoneedit;
+    @FXML
+    private TextField cufromedit;
+
+
+    @FXML
+    private TextField cunameadd;
+    @FXML
+    private TextField cuadderessadd;
+
+    @FXML
+    private TextField cuactdactadd;
+    @FXML
+    private TextField cuemailadd;
+
+    @FXML
+    private TextField cuphonadd;
+    @FXML
+    private TextField cufromadd;
+
 
     private double x,y=0;
     public String leftbar1;
@@ -137,10 +230,23 @@ public class HomeController extends Application implements Initializable{
     private Button workeradd;
     @FXML
     private Button workerdelete;
+    @FXML
+    private Button cuupdatebtn;
+    @FXML
+    private Button cucancelbtn;
+    @FXML
+    private Button cuupdataddbtn;
+    @FXML
+    private Button cucanceladdbtn;
 
 
     @FXML
     private VBox vboworkerlist;
+    @FXML
+    private VBox wotaskvbox;
+    @FXML
+    private VBox clientvbox;
+
 
 
 
@@ -184,6 +290,7 @@ public class HomeController extends Application implements Initializable{
         btnsettings1.setText(DataShare.leftbaritems6);
         leftbaredit7.setText(DataShare.leftbaritems6);
         workertableview();
+        clientlist();
     }
 
 
@@ -251,7 +358,73 @@ public class HomeController extends Application implements Initializable{
         btnsettings1.setText(DataShare.leftbaritems6);
         leftbaredit7.setText(DataShare.leftbaritems6);
     }
+    public void useraddeditcancel(){
+        usereditadd.toBack();
+        employees.toFront();
+        placelabel.setText("New Employee");
+        vboworkerlist.getChildren().clear();
+        workertableview();
+    }
 
+    public void addemployee(){
+        paneaddemployee.toFront();
+        placelabel.setText(DataShare.leftbaritems3);
+    }
+    public void addempbtn(){
+
+
+        DatabaseConnection connectiondata = new DatabaseConnection();
+        Connection connectdatabase = connectiondata.getConnection();
+
+        String name = wonameedit1.getText();
+        String address = woaddressedit1.getText();
+        String dep = wodepedit1.getText();
+        String pass = wopasswordedit1.getText();
+        String username = wousernameedit1.getText();
+
+        Integer ag = Integer.parseInt(woageedit1.getText());
+        Integer pho = Integer.parseInt(wophonedit1.getText());
+        Integer sal = Integer.parseInt(wosalaryedit1.getText());
+
+        Integer age = ag;
+        Integer phone = pho;
+        Integer salary = sal;
+
+        String insertfields = "INSERT INTO `ebinshaji`.`workers` (`usernamewo`, `name1`, `age`, `salary` ,`department`, `passwordwo`, `address`, `phone`) VALUES ('";
+        String InsertValues = username + "','" + name + "','" + age + "','" + salary + "','"+ dep + "','" + pass + "','" + address + "','" + phone + "')";
+        String Inserttoregister = insertfields + InsertValues;
+        woaddindi.setText("Employee Added Successfully");
+        String createwotasktable = "CREATE TABLE IF NOT EXISTS `ebinshaji`.`"+username+"` (`taskid` INT NOT NULL AUTO_INCREMENT, `taskhead` VARCHAR(450) NOT NULL, `taskdesc` VARCHAR(450) NOT NULL, `startdate` DATE NOT NULL, `enddate` DATE NOT NULL, `progress` INT(3) NOT NULL, PRIMARY KEY (`taskid`, `taskhead`), UNIQUE INDEX `username_UNIQUE` (`taskid` ASC) VISIBLE) ENGINE = InnoDB;";
+
+        try{
+            Statement statement = connectdatabase.createStatement();
+            statement.executeUpdate(Inserttoregister);
+            statement.executeUpdate(createwotasktable);
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+
+    public void workerlistupdate(){
+        //UPDAATING WORKER ITEM
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "UPDATE ebinshaji.workers SET usernamewo = '"+wousernameedit.getText()+"',name1 = '"+wonameedit.getText()+"',age = '"+Integer.parseInt(woageedit.getText())+"',salary = '"+Integer.parseInt(wosalaryedit.getText())+"', department = '"+wodepedit.getText()+"',passwordwo = '"+wopasswordedit.getText()+"',address = '"+woaddressedit.getText()+"',phone = '"+Integer.parseInt(wophonedit.getText())+"' WHERE usernamewo = '"+DataShare.selectedworker+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        vboworkerlist.getChildren().clear();
+        workertableview();
+        employees.toFront();
+    }
     public void workertableview(){
         DatabaseConnection connection = new DatabaseConnection();
         Connection connectiondb  = connection.getConnection();
@@ -269,15 +442,83 @@ public class HomeController extends Application implements Initializable{
                 Label label2 = (Label) listItemNode.lookup("#workerdep");
                 Label label3 = (Label) listItemNode.lookup("#workerage");
                 Label label4 = (Label) listItemNode.lookup("#workersalary");
+                Label label5 = (Label) listItemNode.lookup("#workerid");
+                Label pas = (Label) listItemNode.lookup("#wopas");
+                Label wophone = (Label) listItemNode.lookup("#wophone");
+                Label woid = (Label) listItemNode.lookup("#woid");
+                Label woaddress = (Label) listItemNode.lookup("#woaddress");
+                HBox listitem = (HBox) listItemNode.lookup("#hbox");
+                Button deletebu = (Button) listItemNode.lookup("#btndelete");
+                Button btnedit = (Button) listItemNode.lookup("#btnedit");
+
 
                 name.setText( workerslist.getString("name1"));
+                pas.setText( workerslist.getString("passwordwo"));
                 label2.setText(workerslist.getString("department"));
+                woid.setText(workerslist.getString("usernamewo"));
+                woaddress.setText(workerslist.getString("address"));
                 label3.setText(String.valueOf(workerslist.getInt("age")));
                 label4.setText(String.valueOf(workerslist.getInt("salary")));
+                wophone.setText(String.valueOf(workerslist.getInt("phone")));
+
+                DataShare.workercount = DataShare.workercount + 1;
+                label5.setText(String.valueOf(DataShare.workercount));
 
                 // Add the listItemNode to the VBox
                 vboworkerlist.getChildren().add(listItemNode);
 
+                VBox.setMargin(listItemNode, new Insets(15, 3, 10, 8)); // top, right, bottom, left
+
+
+
+
+
+                listitem.setOnMouseEntered(event -> {
+                    listitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(200, 60, 255) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(200, 60, 255) 100%);");
+                });
+                listitem.setOnMouseExited(event -> {
+                    listitem.setStyle("-fx-border-color:  linear-gradient(to right, rgba(17, 255, 0, 0.59) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(17, 255, 0, 0.59) 100%);");
+                });
+                listitem.setOnMouseClicked(event -> {
+                    DataShare.selectedworker = woid.getText();
+                    wouseridlabel.setText(DataShare.selectedworker);
+                    DataShare.wodep = label2.getText();
+                    DataShare.woname = name.getText();
+                    DataShare.woage = Integer.parseInt(label3.getText());
+                    DataShare.wosalary = Integer.parseInt(label4.getText());
+                    DataShare.wophone = Integer.parseInt(wophone.getText());
+                    DataShare.woaddress1 = woaddress.getText();
+                    DataShare.wopas = pas.getText();
+                    String formattedAddress = DataShare.woaddress1.replaceAll(",", "\n");
+                    addresswo.setText(formattedAddress + "\n" + DataShare.wophone);
+                    listitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(227, 227, 227) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(227, 227, 227) 100%);");
+                    wotaskvbox.getChildren().clear();
+                    workertaskview();
+                });
+
+                btnedit.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        wonameedit.setText(DataShare.woname);
+                        woaddressedit.setText(DataShare.woaddress1);
+                        wodepedit.setText(DataShare.wodep);
+                        wopasswordedit.setText(DataShare.wopas);
+                        wousernameedit.setText(DataShare.selectedworker);
+                        woageedit.setText(String.valueOf(DataShare.woage));
+                        wophonedit.setText(String.valueOf(DataShare.wophone));
+                        wosalaryedit.setText(String.valueOf(DataShare.wosalary));
+                        placelabel.setText("Edit Employee");
+                        usereditadd.toFront();
+                        DataShare.workercount = 0;
+                    }
+                });
+                deletebu.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        deletewo();
+                        DataShare.workercount = 0;
+                    }
+                });
 
             }
 
@@ -285,6 +526,205 @@ public class HomeController extends Application implements Initializable{
             e.printStackTrace();
             e.getCause();
         }
+    }
+
+    //worker task  start
+
+
+    public void workertaskview() {
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb = connection.getConnection();
+
+        try {
+            Statement statement = connectiondb.createStatement();
+            ResultSet tasklist = statement.executeQuery("SELECT * FROM " + DataShare.selectedworker + "");
+
+            while (tasklist.next()) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("wotask.fxml"));
+                Node listItemNode = fxmlLoader.load();
+
+                Label title = (Label) listItemNode.lookup("#tasktitle");
+                Label desc = (Label) listItemNode.lookup("#taskdesc");
+                Label startdate = (Label) listItemNode.lookup("#taskstart");
+                Label enddate = (Label) listItemNode.lookup("#taskend");
+                ProgressBar progress = (ProgressBar) listItemNode.lookup("#taskprogress");
+
+                double value = tasklist.getDouble("progress");
+                double progressval = value / 100.0; // Convert the value to progress between 0.0 and 1.0
+                progress.setProgress(progressval);
+
+                progress.setStyle("-fx-accent: green;");
+
+                title.setText(tasklist.getString("taskhead"));
+                desc.setText(tasklist.getString("taskdesc"));
+                startdate.setText(tasklist.getString("startdate"));
+                enddate.setText(tasklist.getString("enddate"));
+
+                // Add the listItemNode to the VBox
+
+                wotaskvbox.getChildren().add(listItemNode);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+
+    //end of wo task
+
+
+    //CLIENT TASK
+    public void clientlist() {
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb = connection.getConnection();
+
+        try {
+            Statement statement = connectiondb.createStatement();
+            ResultSet tasklist = statement.executeQuery("SELECT * FROM ebinshaji.client");
+
+            while (tasklist.next()) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cllist.fxml"));
+                Node listItemNode = fxmlLoader.load();
+
+                Label name = (Label) listItemNode.lookup("#cuname");
+                Label email = (Label) listItemNode.lookup("#cuemail");
+                Label address = (Label) listItemNode.lookup("#cuaddress");
+                Label phone = (Label) listItemNode.lookup("#cuphone");
+                Label actdact = (Label) listItemNode.lookup("#cuactdact");
+                Label memsince = (Label) listItemNode.lookup("#cumemdate");
+                Button cueditbtn = (Button) listItemNode.lookup("#cuedit");
+                Button cudel = (Button) listItemNode.lookup("#cudelete");
+                Pane cuitem = (Pane) listItemNode.lookup("#cllist");
+
+
+
+                name.setText(tasklist.getString("clname"));
+                email.setText(tasklist.getString("clemail"));
+                address.setText(tasklist.getString("address"));
+                memsince.setText(tasklist.getString("memsince"));
+                phone.setText(String.valueOf(tasklist.getInt("phone")));
+                if(tasklist.getInt("ACTDAC") == 1){
+                    actdact.setText("ACTIVE");
+                }else{
+                    actdact.setText("DEACTIVE");
+                }
+
+                // Add the listItemNode to the VBox
+
+                clientvbox.getChildren().add(listItemNode);
+
+
+
+                VBox.setMargin(listItemNode, new Insets(15, 3, 10, 8)); // top, right, bottom, left
+
+
+
+
+
+
+                cuitem.setOnMouseClicked(event -> {
+                    DataShare.cuname = name.getText();
+                    DataShare.cuaddress = address.getText();
+                    DataShare.cuemail = email.getText();
+                    DataShare.cufrmdate = memsince.getText();
+
+                    DataShare.cuphone = Integer.parseInt(phone.getText());
+                    if(actdact.getText() == "ACTIVE"){
+                        DataShare.cuactdact = 1;
+                    }else{
+                        DataShare.cuactdact = 2;
+                    }
+
+
+                    cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(227, 227, 227) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(227, 227, 227) 100%);");
+                });
+
+                cueditbtn.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        cunameedit.setText(DataShare.cuname);
+                        cuadderessedit.setText(DataShare.cuaddress);
+                        cuemailedit.setText(DataShare.cuemail);
+                        cufromedit.setText(DataShare.cufrmdate);
+                        cuactdactedit.setText(String.valueOf(DataShare.cuphone));
+                        cuphoneedit.setText(String.valueOf(DataShare.cuactdact));
+                        customers.toBack();
+                        cuedit.toFront();
+                    }
+                });
+                cudel.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    //END CLIENT TASK
+
+    //custumer edit
+
+    public void clientupdate(){
+        //UPDAATING client item
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "UPDATE ebinshaji.client SET clname = '"+cunameedit.getText()+"',clemail = '"+cuemailedit.getText()+"',phone = '"+Integer.parseInt(cuphoneedit.getText())+"',ACTDAC = '"+Integer.parseInt(wosalaryedit.getText())+"', department = '"+cuactdactedit.getText()+"',memsince = '"+cufromedit.getText()+"',address = '"+cuadderessedit.getText()+"' WHERE clemail = '"+DataShare.selectedworker+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        clientvbox.getChildren().clear();
+        clientlist();
+        customers.toFront();
+    }
+
+
+    public void cancelbtnclick(){
+        customers.toFront();
+    }
+    //end customeredit
+
+    public void deletewo(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "DELETE FROM ebinshaji.workers WHERE usernamewo = '"+DataShare.selectedworker+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        vboworkerlist.getChildren().clear();
+        workertableview();
     }
 
 
@@ -353,7 +793,6 @@ public class HomeController extends Application implements Initializable{
             placelabel.setText(DataShare.leftbaritems6);
         }
     }
-
 }
 
 

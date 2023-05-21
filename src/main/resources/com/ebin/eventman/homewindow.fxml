@@ -106,127 +106,6 @@
             <Pane fx:id="panedashboard" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="paneevents" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="panecustomer" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
-            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
-            <Pane fx:id="cuadd" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
-               <children>
-                  <TextField fx:id="cunameadd" layoutX="135.0" layoutY="98.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <Label layoutX="55.0" layoutY="106.0" text="Name" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="478.0" layoutY="106.0" text="Email" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="54.0" layoutY="314.0" text="A/D" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="54.0" layoutY="212.0" text="Address" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="478.0" layoutY="212.0" text="Phone" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="479.0" layoutY="314.0" text="Date" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="cuemailadd" layoutX="550.0" layoutY="105.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuactdactadd" layoutX="135.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cufromadd" layoutX="555.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuadderessadd" layoutX="135.0" layoutY="209.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuphonadd" layoutX="555.0" layoutY="209.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <Button fx:id="cuupdataddbtn" layoutX="636.0" layoutY="407.0" mnemonicParsing="false" onAction="#workerlistupdate" style="-fx-background-color: #474e56;" text="Update" textFill="#c6c6c6">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="cucanceladdbtn" layoutX="704.0" layoutY="407.0" mnemonicParsing="false" onAction="#useraddeditcancel" style="-fx-background-color: #474e56;" text="Cancel" textFill="#c6c6c6">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="180.0" layoutY="365.0" text="1 = Active" textFill="#909090">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="180.0" layoutY="395.0" text="2 = Dactive" textFill="#909090">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane fx:id="custedit" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
-               <children>
-                  <TextField fx:id="cunameedit" layoutX="135.0" layoutY="98.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <Label layoutX="55.0" layoutY="106.0" text="Name" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="478.0" layoutY="106.0" text="Email" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="54.0" layoutY="314.0" text="A/D" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="54.0" layoutY="212.0" text="Address" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="478.0" layoutY="212.0" text="Phone" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="479.0" layoutY="314.0" text="Date" textFill="#dddddd">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="cuemailedit" layoutX="550.0" layoutY="105.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuactdactedit" layoutX="135.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cufromedit" layoutX="555.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuadderessedit" layoutX="135.0" layoutY="209.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <TextField fx:id="cuphoneedit" layoutX="555.0" layoutY="209.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
-                  <Button fx:id="cuupdatebtn" layoutX="636.0" layoutY="407.0" mnemonicParsing="false" onAction="#clientupdate" style="-fx-background-color: #474e56;" text="Update" textFill="#c6c6c6">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="cucancelbtn" layoutX="704.0" layoutY="407.0" mnemonicParsing="false" onAction="#cancelbtnclick" style="-fx-background-color: #474e56;" text="Cancel" textFill="#c6c6c6">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="180.0" layoutY="365.0" text="1 = Active" textFill="#909090">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="180.0" layoutY="395.0" text="2 = Dactive" textFill="#909090">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
             <Pane fx:id="paneaddemployee" layoutX="-1.0" layoutY="68.0" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
                <children>
                   <TextField fx:id="wonameedit1" layoutX="135.0" layoutY="98.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
@@ -467,6 +346,137 @@
                   </Button>
                </children>
             </Pane>
+            <Pane fx:id="custedit" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
+               <children>
+                  <Label layoutX="79.0" layoutY="37.0" text="Edit Customer" textFill="#e8e8e8">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cunameedit" layoutX="135.0" layoutY="98.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Label layoutX="55.0" layoutY="106.0" text="Name" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="478.0" layoutY="106.0" text="Email" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="314.0" text="A/D" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="212.0" text="Address" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="478.0" layoutY="212.0" text="Phone" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="479.0" layoutY="314.0" text="Date" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cuemailedit" layoutX="550.0" layoutY="105.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuactdactedit" layoutX="135.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cufromedit" layoutX="555.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuadderessedit" layoutX="135.0" layoutY="209.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuphoneedit" layoutX="555.0" layoutY="209.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Button fx:id="cuupdatebtn" layoutX="636.0" layoutY="407.0" mnemonicParsing="false" onAction="#clientupdate" style="-fx-background-color: #474e56;" text="Update" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cucancelbtn" layoutX="704.0" layoutY="407.0" mnemonicParsing="false" onAction="#cancelbtnclick" style="-fx-background-color: #474e56;" text="Back" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="180.0" layoutY="365.0" text="1 = Active" textFill="#909090">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="180.0" layoutY="395.0" text="2 = Dactive" textFill="#909090">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
+            <Pane fx:id="cuadd" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
+               <children>
+                  <Label layoutX="42.0" layoutY="43.0" text="Add Customer" textFill="#e8e8e8">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cunameadd" layoutX="135.0" layoutY="98.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Label layoutX="55.0" layoutY="106.0" text="Name" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="478.0" layoutY="106.0" text="Email" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="314.0" text="A/D" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="212.0" text="Address" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="478.0" layoutY="212.0" text="Phone" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="479.0" layoutY="314.0" text="Date" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cuemailadd" layoutX="550.0" layoutY="105.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuactdactadd" layoutX="135.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cufromadd" layoutX="555.0" layoutY="308.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuadderessadd" layoutX="135.0" layoutY="209.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="cuphonadd" layoutX="555.0" layoutY="209.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Button fx:id="cuupdataddbtn" layoutX="636.0" layoutY="407.0" mnemonicParsing="false" onAction="#clientadd" style="-fx-background-color: #474e56;" text="Add" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cucanceladdbtn" layoutX="704.0" layoutY="407.0" mnemonicParsing="false" onAction="#cancelbtnclick" style="-fx-background-color: #474e56;" text="Back" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="180.0" layoutY="365.0" text="1 = Active" textFill="#909090">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="180.0" layoutY="395.0" text="2 = Dactive" textFill="#909090">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
             <Pane fx:id="customers" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
                <children>
                   <ScrollPane layoutX="14.0" layoutY="36.0" prefHeight="578.0" prefWidth="606.0" style="-fx-background-color: #24292D;">
@@ -488,7 +498,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Clientadd" graphicTextGap="2.0" layoutX="553.0" layoutY="11.0" mnemonicParsing="false" onAction="#addemployee" style="-fx-background-color: #474e56;" text="New" textFill="#f8f8f8">
+                  <Button fx:id="Clientadd" graphicTextGap="2.0" layoutX="553.0" layoutY="11.0" mnemonicParsing="false" onAction="#newbtnclick" style="-fx-background-color: #474e56;" text="New" textFill="#f8f8f8">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>

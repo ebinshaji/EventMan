@@ -83,7 +83,7 @@ public class HomeController extends Application implements Initializable{
     private Pane usereditadd;
 
     @FXML
-    private Pane cuedit;
+    private Pane custedit;
     @FXML
     private Pane cuadd;
     @FXML
@@ -576,6 +576,34 @@ public class HomeController extends Application implements Initializable{
     //end of wo task
 
 
+    //custumer edit
+
+    public void clientupdate(){
+        //UPDAATING client item
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "UPDATE ebinshaji.client SET clname = '"+cunameedit.getText()+"',clemail = '"+cuemailedit.getText()+"',phone = '"+Integer.parseInt(cuphoneedit.getText())+"',ACTDAC = '"+Integer.parseInt(cuactdactedit.getText())+"',memsince = '"+cufromedit.getText()+"',address = '"+cuadderessedit.getText()+"' WHERE clemail = '"+DataShare.cuemail+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        clientvbox.getChildren().clear();
+        clientlist();
+        customers.toFront();
+    }
+
+
+    public void cancelbtnclick(){
+        clientvbox.getChildren().clear();
+        clientlist();
+        customers.toFront();
+    }
+    //end customeredit
     //CLIENT TASK
     public void clientlist() {
         DatabaseConnection connection = new DatabaseConnection();
@@ -618,12 +646,7 @@ public class HomeController extends Application implements Initializable{
                 clientvbox.getChildren().add(listItemNode);
 
 
-
                 VBox.setMargin(listItemNode, new Insets(15, 3, 10, 8)); // top, right, bottom, left
-
-
-
-
 
 
                 cuitem.setOnMouseClicked(event -> {
@@ -642,6 +665,12 @@ public class HomeController extends Application implements Initializable{
 
                     cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(227, 227, 227) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(227, 227, 227) 100%);");
                 });
+                cuitem.setOnMouseEntered(event -> {
+                    cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(200, 60, 255) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(200, 60, 255) 100%);");
+                });
+                cuitem.setOnMouseExited(event -> {
+                    cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgba(17, 255, 0, 0.59) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(17, 255, 0, 0.59) 100%);");
+                });
 
                 cueditbtn.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -650,29 +679,17 @@ public class HomeController extends Application implements Initializable{
                         cuadderessedit.setText(DataShare.cuaddress);
                         cuemailedit.setText(DataShare.cuemail);
                         cufromedit.setText(DataShare.cufrmdate);
-                        cuactdactedit.setText(String.valueOf(DataShare.cuphone));
-                        cuphoneedit.setText(String.valueOf(DataShare.cuactdact));
-                        customers.toBack();
-                        cuedit.toFront();
+                        cuactdactedit.setText(String.valueOf(DataShare.cuactdact));
+                        cuphoneedit.setText(String.valueOf(DataShare.cuphone));
+                        custedit.toFront();
                     }
                 });
                 cudel.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-
+                        deleteclient();
                     }
                 });
-
-
-
-
-
-
-
-
-
-
-
 
             }
 
@@ -683,15 +700,20 @@ public class HomeController extends Application implements Initializable{
     }
     //END CLIENT TASK
 
-    //custumer edit
+//start client add
 
-    public void clientupdate(){
-        //UPDAATING client item
+    public void newbtnclick(){
+        cuadd.toFront();
+
+    }
+
+    public void clientadd(){
+        cuadd.toFront();
         DatabaseConnection connection = new DatabaseConnection();
         Connection connectiondb  = connection.getConnection();
 
         try{
-            String updateQuery  = "UPDATE ebinshaji.client SET clname = '"+cunameedit.getText()+"',clemail = '"+cuemailedit.getText()+"',phone = '"+Integer.parseInt(cuphoneedit.getText())+"',ACTDAC = '"+Integer.parseInt(wosalaryedit.getText())+"', department = '"+cuactdactedit.getText()+"',memsince = '"+cufromedit.getText()+"',address = '"+cuadderessedit.getText()+"' WHERE clemail = '"+DataShare.selectedworker+"';";
+            String updateQuery  = "insert into ebinshaji.client (clname,ACTDAC,address, clemail,memsince,phone)values ('"+cunameadd.getText()+"',"+Integer.parseInt(cuactdactadd.getText())+",'"+cuadderessadd.getText()+"','"+cuemailadd.getText()+"','"+cufromadd.getText()+"',"+Integer.parseInt(cuphonadd.getText())+");";
             Statement statement = connectiondb.createStatement();
             int queryResult = statement.executeUpdate(updateQuery);
 
@@ -699,23 +721,36 @@ public class HomeController extends Application implements Initializable{
             e.printStackTrace();
             e.getCause();
         }
-        clientvbox.getChildren().clear();
-        clientlist();
-        customers.toFront();
+        vboworkerlist.getChildren().clear();
+        workertableview();
+
+
     }
 
-
-    public void cancelbtnclick(){
-        customers.toFront();
-    }
-    //end customeredit
-
+    //end client add
     public void deletewo(){
         DatabaseConnection connection = new DatabaseConnection();
         Connection connectiondb  = connection.getConnection();
 
         try{
             String updateQuery  = "DELETE FROM ebinshaji.workers WHERE usernamewo = '"+DataShare.selectedworker+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        vboworkerlist.getChildren().clear();
+        workertableview();
+    }
+
+    public void deleteclient(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "DELETE FROM ebinshaji.client WHERE clemail = '"+DataShare.cuemail+"';";
             Statement statement = connectiondb.createStatement();
             int queryResult = statement.executeUpdate(updateQuery);
 
@@ -778,10 +813,13 @@ public class HomeController extends Application implements Initializable{
 
     public void leftbtnclicks(ActionEvent event) {
         if (event.getSource() == btndashboard){
+            panedashboard.toFront();
             placelabel.setText(DataShare.leftbaritems);
         }else if (event.getSource() == btnevents){
+            employees.toFront();
             placelabel.setText(DataShare.leftbaritems1);
         }else if (event.getSource() == btncustomer){
+            customers.toFront();
             placelabel.setText(DataShare.leftbaritems2);
         }else if (event.getSource() == btninsights){
             placelabel.setText(DataShare.leftbaritems3);

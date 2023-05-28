@@ -411,7 +411,6 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="paneinsights" layoutX="-1.0" layoutY="103.0" prefHeight="567.0" prefWidth="1018.0" />
             <Pane fx:id="cuadd" layoutX="-1.0" layoutY="68.0" onDragDetected="#btncancelonclick" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
                <children>
                   <Label layoutX="42.0" layoutY="43.0" text="Add Customer" textFill="#e8e8e8">
@@ -508,7 +507,7 @@
                   </Button>
                   <ScrollPane layoutX="660.0" layoutY="62.0" prefHeight="556.0" prefWidth="343.0" style="-fx-background-color: #24292D;">
                      <content>
-                        <VBox fx:id="wotaskvbox1" prefHeight="556.0" prefWidth="343.0" style="-fx-background-color: #24292D;" />
+                        <VBox fx:id="clintworkassigned" prefHeight="556.0" prefWidth="343.0" style="-fx-background-color: #24292D;" />
                      </content>
                   </ScrollPane>
                   <Label layoutX="666.0" layoutY="24.0" text="Works" textFill="WHITE">
@@ -516,7 +515,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="clientwoadd" layoutX="917.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: #474e56;" text="+" textFill="WHITE">
+                  <Button fx:id="clientwoadd" layoutX="917.0" layoutY="29.0" mnemonicParsing="false" onAction="#clienttaskaddbtn" style="-fx-background-color: #474e56;" text="+" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -524,7 +523,7 @@
                         <Insets bottom="-5.0" left="4.0" right="4.0" top="-5.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="clientwodel" layoutX="941.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: #474e56;" text="-" textFill="WHITE">
+                  <Button fx:id="clientwodel" layoutX="941.0" layoutY="29.0" mnemonicParsing="false" onAction="#clienttaskremovebtn" style="-fx-background-color: #474e56;" text="-" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -539,6 +538,48 @@
                   </Label>
                </children>
             </Pane>
+            <Pane fx:id="paneaddclienttask" layoutX="-1.0" layoutY="68.0" prefHeight="602.0" prefWidth="1047.0" style="-fx-background-color: #24292D;">
+               <children>
+                  <Label layoutX="23.0" layoutY="14.0" text="New Customer Task" textFill="#e8e8e8">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tasktitle" layoutX="162.0" layoutY="88.0" prefHeight="33.0" prefWidth="270.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="taskstartdate" layoutX="162.0" layoutY="194.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <TextField fx:id="taskdesc" layoutX="165.0" layoutY="297.0" prefHeight="33.0" prefWidth="630.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Label layoutX="453.0" layoutY="207.0" text="End Date: " textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="taskenddate" layoutX="548.0" layoutY="197.0" style="-fx-background-color: #24292D;" styleClass="logindetails1" stylesheets="@Style.css" />
+                  <Button layoutX="660.0" layoutY="349.0" mnemonicParsing="false" onAction="#clienttasknew" style="-fx-background-color: #474e56;" text="Add" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="62.0" layoutY="89.0" text="Title: " textFill="#dddddd">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="306.0" text="Describe:" textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="201.0" text="Start Date: " textFill="#dddddd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="cucanceladdbtn1" layoutX="722.0" layoutY="349.0" mnemonicParsing="false" onAction="#clienttaskaddback" style="-fx-background-color: #474e56;" text="Back" textFill="#c6c6c6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
          </children></AnchorPane>
    </center>
 </BorderPane>

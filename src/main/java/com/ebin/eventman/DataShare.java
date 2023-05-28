@@ -41,4 +41,11 @@ public class DataShare {
     public static Integer cuactdact;
 
 
+
+    public static String clienttasktitle;
+    public static String clienttaskstartdate;
+    public static String clienttaskenddate;
+    public static String clienttaskdescription;
+
+
 }

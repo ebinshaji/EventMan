@@ -88,6 +88,8 @@ public class HomeController extends Application implements Initializable{
     private Pane cuadd;
     @FXML
     private Pane customers;
+    @FXML
+    private Pane paneaddclienttask;
 
     @FXML
     private ImageView logobtnimg;
@@ -208,6 +210,18 @@ public class HomeController extends Application implements Initializable{
     private TextField cufromadd;
 
 
+
+    @FXML
+    private TextField tasktitle;
+    @FXML
+    private TextField taskstartdate;
+
+    @FXML
+    private TextField taskenddate;
+    @FXML
+    private TextField taskdesc;
+
+
     private double x,y=0;
     public String leftbar1;
     public String leftbar2;
@@ -246,6 +260,8 @@ public class HomeController extends Application implements Initializable{
     private VBox wotaskvbox;
     @FXML
     private VBox clientvbox;
+    @FXML
+    private VBox clintworkassigned;
 
 
 
@@ -472,7 +488,6 @@ public class HomeController extends Application implements Initializable{
 
 
 
-
                 listitem.setOnMouseEntered(event -> {
                     listitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(200, 60, 255) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(200, 60, 255) 100%);");
                 });
@@ -575,6 +590,75 @@ public class HomeController extends Application implements Initializable{
 
     //end of wo task
 
+    //start customer task
+
+    public void clienttaskview() {
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb = connection.getConnection();
+
+        try {
+            Statement statement = connectiondb.createStatement();
+            ResultSet tasklist = statement.executeQuery("SELECT * FROM `"+DataShare.cuemail+"`;");
+
+            while (tasklist.next()) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("wotask.fxml"));
+                Node listItemNode = fxmlLoader.load();
+
+                Label title = (Label) listItemNode.lookup("#tasktitle");
+                Label desc = (Label) listItemNode.lookup("#taskdesc");
+                Label startdate = (Label) listItemNode.lookup("#taskstart");
+                Label enddate = (Label) listItemNode.lookup("#taskend");
+                ProgressBar progress = (ProgressBar) listItemNode.lookup("#taskprogress");
+
+                double value = tasklist.getDouble("progress");
+                double progressval = value / 100.0; // Convert the value to progress between 0.0 and 1.0
+                progress.setProgress(progressval);
+
+                progress.setStyle("-fx-accent: green;");
+
+                title.setText(tasklist.getString("taskhead"));
+                desc.setText(tasklist.getString("taskdesc"));
+                startdate.setText(tasklist.getString("startdate"));
+                enddate.setText(tasklist.getString("enddate"));
+                //HBox clienttaskitem = (HBox) listItemNode.lookup("#clienttaskdata");
+
+                // Add the listItemNode to the VBox
+
+                clintworkassigned.getChildren().add(listItemNode);
+
+
+                //client task item on click
+
+                listItemNode.setOnMouseEntered(event -> {
+                    listItemNode.setStyle("-fx-border-color:  linear-gradient(to right, rgb(200, 60, 255) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(200, 60, 255) 100%);");
+                });
+                listItemNode.setOnMouseExited(event -> {
+                    listItemNode.setStyle("-fx-border-color:  linear-gradient(to right, rgba(17, 255, 0, 0.59) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(17, 255, 0, 0.59) 100%);");
+                });
+                listItemNode.setOnMouseClicked(event -> {
+
+                    DataShare.clienttasktitle = title.getText();
+                    DataShare.clienttaskstartdate = startdate.getText();
+                    DataShare.clienttaskenddate = enddate.getText();
+                    DataShare.clienttaskdescription = desc.getText();
+
+                    listItemNode.setStyle("-fx-border-color:  linear-gradient(to right, rgb(227, 227, 227) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(227, 227, 227) 100%);");
+
+                });
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+
+    //end of customer task
+
 
     //custumer edit
 
@@ -603,6 +687,7 @@ public class HomeController extends Application implements Initializable{
         clientlist();
         customers.toFront();
     }
+
     //end customeredit
     //CLIENT TASK
     public void clientlist() {
@@ -661,9 +746,9 @@ public class HomeController extends Application implements Initializable{
                     }else{
                         DataShare.cuactdact = 2;
                     }
-
-
                     cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(227, 227, 227) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(227, 227, 227) 100%);");
+                    clintworkassigned.getChildren().clear();
+                    clienttaskview();
                 });
                 cuitem.setOnMouseEntered(event -> {
                     cuitem.setStyle("-fx-border-color:  linear-gradient(to right, rgb(200, 60, 255) 0%, rgba(42, 70, 73, 0.24) 50%, rgb(200, 60, 255) 100%);");
@@ -693,12 +778,63 @@ public class HomeController extends Application implements Initializable{
 
             }
 
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
     }
+
+    public void clienttaskaddback(){
+        clintworkassigned.getChildren().clear();
+        clienttaskview();
+        customers.toFront();
+    }
+
+    public void clienttaskaddbtn(){
+        paneaddclienttask.toFront();
+    }
     //END CLIENT TASK
+
+    //start client task add and remove
+
+    public void clienttasknew(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "INSERT INTO `ebinshaji`.`"+DataShare.cuemail+"` (taskhead,enddate,progress,startdate,taskdesc) VALUES ('"+tasktitle.getText()+"','"+taskenddate.getText()+"',0,'"+taskstartdate.getText()+"','"+taskdesc.getText()+"');";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+
+    //remove
+    public void clienttaskremovebtn(){
+        DatabaseConnection connection = new DatabaseConnection();
+        Connection connectiondb  = connection.getConnection();
+
+        try{
+            String updateQuery  = "DELETE FROM ebinshaji.`"+DataShare.cuemail+"` WHERE taskhead = '"+DataShare.clienttasktitle+"';";
+            Statement statement = connectiondb.createStatement();
+            int queryResult = statement.executeUpdate(updateQuery);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        clintworkassigned.getChildren().clear();
+        clienttaskview();
+
+    }
+
+
+    //end client task add
 
 //start client add
 
@@ -713,16 +849,19 @@ public class HomeController extends Application implements Initializable{
         Connection connectiondb  = connection.getConnection();
 
         try{
+
             String updateQuery  = "insert into ebinshaji.client (clname,ACTDAC,address, clemail,memsince,phone)values ('"+cunameadd.getText()+"',"+Integer.parseInt(cuactdactadd.getText())+",'"+cuadderessadd.getText()+"','"+cuemailadd.getText()+"','"+cufromadd.getText()+"',"+Integer.parseInt(cuphonadd.getText())+");";
+            String customertasktable = "CREATE TABLE IF NOT EXISTS `ebinshaji`.`"+cuemailadd.getText()+"` (`taskid` INT NOT NULL AUTO_INCREMENT, `taskhead` VARCHAR(450) NOT NULL, `taskdesc` VARCHAR(450) NOT NULL, `startdate` DATE NOT NULL, `enddate` DATE NOT NULL, `progress` INT(3) NOT NULL, PRIMARY KEY (`taskid`, `taskhead`), UNIQUE INDEX `username_UNIQUE` (`taskid` ASC) VISIBLE) ENGINE = InnoDB;";
             Statement statement = connectiondb.createStatement();
             int queryResult = statement.executeUpdate(updateQuery);
+            int cutable = statement.executeUpdate(customertasktable);
 
         }catch(Exception e){
             e.printStackTrace();
             e.getCause();
         }
-        vboworkerlist.getChildren().clear();
-        workertableview();
+        clientvbox.getChildren().clear();
+        clientlist();
 
 
     }
@@ -734,8 +873,10 @@ public class HomeController extends Application implements Initializable{
 
         try{
             String updateQuery  = "DELETE FROM ebinshaji.workers WHERE usernamewo = '"+DataShare.selectedworker+"';";
+            String delworker  = "DROP TABLE `"+DataShare.selectedworker+"`;";
             Statement statement = connectiondb.createStatement();
             int queryResult = statement.executeUpdate(updateQuery);
+            int wodelt = statement.executeUpdate(delworker);
 
         }catch(Exception e){
             e.printStackTrace();
@@ -751,15 +892,17 @@ public class HomeController extends Application implements Initializable{
 
         try{
             String updateQuery  = "DELETE FROM ebinshaji.client WHERE clemail = '"+DataShare.cuemail+"';";
+            String deletetable = "DROP TABLE `"+DataShare.cuemail+"`;";
             Statement statement = connectiondb.createStatement();
             int queryResult = statement.executeUpdate(updateQuery);
+            int deltettablequery = statement.executeUpdate(deletetable);
 
         }catch(Exception e){
             e.printStackTrace();
             e.getCause();
         }
-        vboworkerlist.getChildren().clear();
-        workertableview();
+        clientvbox.getChildren().clear();
+        clientlist();
     }
 
 

@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="290.0" styleClass="woitems" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="-1.0" layoutY="-1.0" prefHeight="141.0" prefWidth="290.0" spacing="13.0">
+      <VBox fx:id="clienttaskdata" layoutX="-1.0" layoutY="-1.0" prefHeight="141.0" prefWidth="290.0" spacing="13.0">
          <children>
             <Label fx:id="tasktitle" minHeight="30.0" minWidth="190.0" prefHeight="30.0" prefWidth="190.0" styleClass="wotasktxt" stylesheets="@Style.css" text="Title" textAlignment="CENTER">
                <font>

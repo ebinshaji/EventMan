@@ -1,6 +1,6 @@
 # EventMan
 
-#Project Overview:
+# Project Overview:
 
 The Event Management System is a JavaFX application built to streamline the process of organizing and managing events. The system provides a user-friendly interface for creating, updating, and deleting events. It also allows users to view a list of all events along with their details.
 Features:
@@ -23,14 +23,14 @@ Features:
     Event Deletion:
         Events can be deleted, and the system prompts the user for confirmation to prevent accidental deletions.
 
-#Technologies Used:
+# Technologies Used:
 
     JavaFX: Used for building the graphical user interface.
     FXML: XML-based language for designing the UI.
     IntelliJ IDEA: Integrated development environment for Java.
     SQL: Database
 
-Implementation Details:
+# Implementation Details:
 
     UI Design:
         The user interface is designed using FXML to create a visually appealing and intuitive layout.
@@ -47,9 +47,9 @@ Implementation Details:
         Separate controllers are implemented for different views, ensuring a clean and modular code structure.
         Controllers handle user inputs, trigger appropriate actions, and update the UI.
 
-Features:
+# Features:
 
     User Authentication: Implement a secure login system for organizers to manage their events.
     Database Integration: Extend the project to use a database for persistent storage of event data.
 
- #further developenment of this project is currently paused
+ # further developenment of this project is currently paused
